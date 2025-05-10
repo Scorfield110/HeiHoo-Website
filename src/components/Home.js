@@ -10,9 +10,9 @@ const Home = () => {
   const navigate = useNavigate();
 
   const carouselItems = [
-    { title: 'Private Bar', image: '/images/ArialBarView.jpg' },
-    { title: 'Accomodation', image: '/images/ArialHutsView.jpg' },
-    { title: 'Views/Activities', image: '/images/ArialRearView.jpg' },
+    { title: 'Private Bar', images: ['/images/BarViewSide.jpg', '/images/BarChillView.jpg', '/images/Bar IN.jpg'] },
+    { title: 'Accommodation', images: ['/images/ArialHutsView.jpg', '/images/ArialRearView.jpg', '/images/RoomsFrontView.jpg', '/images/RoomFront View2.jpg'] },
+    { title: 'Views/Activities', images: ['/images/View2.jpg', 'images/View6.jpg', '/images/View8.jpg', '/images/View7.jpg'] },
   ];
 
   return (
@@ -39,7 +39,7 @@ const Home = () => {
             left: 0,
             width: '100%',
             height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            backgroundColor: 'rgba(0, 0, 0, 0.2)',
             zIndex: 1,
           }}
         />
@@ -94,13 +94,16 @@ const Home = () => {
           }}
         >
           {carouselItems.map((item, idx) => {
-            const isAccomodation = item.title === 'Accomodation';
+            const isAccommodation = item.title === 'Accommodation';
 
             return (
               <Box
                 key={idx}
                 onClick={() => {
-                  if (isAccomodation) navigate('/Accomodation');
+                  if (isAccommodation) {
+                    console.log("Navigating to Accommodation"); // Debugging log
+                    navigate('/Accommodation'); // Ensure this route exists in your router
+                  }
                 }}
                 sx={{
                   width: { xs: '90%', sm: '250px', md: '300px' },
@@ -110,10 +113,10 @@ const Home = () => {
                   backgroundColor: 'white',
                   textAlign: 'center',
                   boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
-                  cursor: isAccomodation ? 'pointer' : 'default',
+                  cursor: isAccommodation ? 'pointer' : 'default',
                   transition: 'transform 0.2s ease',
                   '&:hover': {
-                    transform: isAccomodation ? 'scale(1.02)' : 'none',
+                    transform: isAccommodation ? 'scale(1.02)' : 'none',
                   },
                 }}
               >
@@ -127,6 +130,8 @@ const Home = () => {
                 >
                   {item.title}
                 </Typography>
+
+                {/* Carousel for multiple images */}
                 <Carousel
                   autoPlay
                   infiniteLoop
@@ -138,11 +143,11 @@ const Home = () => {
                   swipeable
                   dynamicHeight={false}
                 >
-                  {[1, 2].map((num) => (
-                    <div key={num}>
+                  {item.images.map((image, index) => (
+                    <div key={index}>
                       <img
-                        src={item.image}
-                        alt={`${item.title} ${num}`}
+                        src={image}
+                        alt={`${item.title} ${index + 1}`}
                         style={{ objectFit: 'cover', height: 250, width: '100%' }}
                       />
                     </div>

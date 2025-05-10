@@ -20,7 +20,7 @@ function NavBar() {
   const navLinks = [
     { text: 'Home', link: '/' },
     { text: 'About', link: '#' },
-    { text: 'Accomodation', link: '/Accomodation' },
+    { text: 'Accommodation', link: '/Accommodation' },
     { text: 'The Bar', link: '#' },
     { text: 'Contact', link: '#' },
     { text: 'Find Us', link: '#' },

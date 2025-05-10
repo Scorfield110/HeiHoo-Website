@@ -6,7 +6,7 @@ import Footer from './Footer';
 //npm import NavBar from './components/NavBar.tsx';
 
 
-function Accomodations() {
+function Accommodation() {
   return (
     <div>
       {/* Hero Section */}
@@ -94,6 +94,6 @@ function Accomodations() {
   );
 }
 
-export default Accomodations;
+export default Accommodation;
 
 

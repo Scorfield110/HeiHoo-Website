@@ -5,7 +5,7 @@ import React from 'react';
 //import Footer from './components/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
-import Accomodation from './components/Accomodation';
+import Accommodation from './components/Accommodation';
 
 
 import './App.css';
@@ -16,7 +16,7 @@ function App() {
       <div className="app">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Accomodation" element={<Accomodation />} />
+          <Route path="/Accommodation" element={<Accommodation />} />
         </Routes>
       </div>
     </Router>
